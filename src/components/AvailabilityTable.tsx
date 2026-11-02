@@ -131,7 +131,7 @@ export const AvailabilityTable: React.FC = () => {
         <table className="avail-table">
           <thead ref={theadRef}>
             <tr>
-              <th className="th-tooltip" title="In-game pullable race item icon and name.">
+              <th className="th-tooltip avail-item-col" title="In-game pullable race item icon and name.">
                 <span>Item</span> <span className="info-icon">?</span>
               </th>
               <th

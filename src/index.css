@@ -473,6 +473,7 @@ body::before {
   display: flex;
   align-items: flex-end;
   gap: 14px;
+  flex-wrap: wrap;
 }
 
 .control-box {
@@ -896,6 +897,7 @@ body::before {
 .table-scroll-container {
   margin-top: 16px;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   border-radius: var(--radius-md);
   border: 2px solid rgba(165, 180, 224, 0.24);
   background: #0b0f24;
@@ -911,6 +913,38 @@ body::before {
   .table-scroll-container.no-scroll-12p,
   .table-scroll-container.no-scroll-avail {
     overflow-x: auto;
+  }
+
+  .prob-matrix-table.is-12-col {
+    table-layout: auto;
+    min-width: 1020px;
+  }
+
+  .prob-matrix-table.is-12-col thead th:not(.sticky-col),
+  .prob-matrix-table.is-12-col td.prob-cell {
+    min-width: 66px;
+  }
+
+  .avail-table {
+    min-width: 980px;
+  }
+
+  .avail-table th.avail-item-col,
+  .avail-table td.avail-item-col {
+    position: sticky;
+    left: 0;
+    z-index: 10;
+    background: #121736;
+    border-right: 2px solid rgba(0, 230, 118, 0.32);
+  }
+
+  .avail-table thead th.avail-item-col {
+    z-index: 25;
+    background: linear-gradient(180deg, #212a5c 0%, #161d42 100%);
+  }
+
+  .avail-table tbody tr:hover td.avail-item-col {
+    background: #1b224d;
   }
 }
 
@@ -2364,4 +2398,435 @@ tr:hover .matrix-item-icon {
 .faq-done-btn:hover {
   transform: translateY(-1px);
   box-shadow: 0 5px 0 #a35e00, 0 0 14px rgba(255, 222, 0, 0.4);
+}
+
+/* ==========================================================================
+   Responsive & Foldable / Mobile Breakpoints (Galaxy Fold Unfolded & Cover)
+   ========================================================================== */
+@media (max-width: 920px) {
+  .top-header {
+    position: relative;
+    top: 0;
+  }
+
+  .panel-card {
+    scroll-margin-top: 16px;
+  }
+
+  .matrix-header-controls {
+    width: 100%;
+  }
+
+  .controls-top-row {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .phase-telemetry-banner {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 12px;
+  }
+
+  .main-content {
+    padding-top: 18px;
+    padding-bottom: 40px;
+    gap: 22px;
+  }
+
+  .panel-card {
+    padding: 18px 14px 16px;
+    border-radius: 16px;
+  }
+
+  .panel-header {
+    gap: 16px;
+    padding-bottom: 16px;
+  }
+
+  .panel-title-group h2 {
+    font-size: 1.38rem;
+  }
+
+  .panel-desc {
+    font-size: 0.82rem;
+  }
+
+  .section-eyebrow {
+    font-size: 0.8rem;
+    padding: 3px 11px;
+  }
+
+  .header-inner {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    gap: 12px;
+  }
+
+  .brand {
+    gap: 11px;
+  }
+
+  .brand-icon-wrap {
+    width: 44px;
+    height: 44px;
+    border-radius: 13px;
+    flex-shrink: 0;
+  }
+
+  .brand-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .brand h1 {
+    font-size: 1.42rem;
+  }
+
+  .brand-subtitle {
+    font-size: 0.76rem;
+    line-height: 1.35;
+  }
+
+  .section-nav {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+  }
+
+  .nav-pill {
+    justify-content: center;
+    padding: 7px 6px;
+    font-size: 0.75rem;
+    gap: 5px;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .header-controls,
+  .controls-top-row {
+    width: 100%;
+    gap: 10px;
+  }
+
+  .control-box {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .segmented-switch {
+    width: 100%;
+    display: flex;
+  }
+
+  .seg-btn {
+    flex: 1;
+    justify-content: center;
+    padding: 6px 8px;
+    font-size: 0.77rem;
+  }
+
+  .phase-selector-container {
+    padding: 12px;
+  }
+
+  .phase-tabs {
+    grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+    gap: 8px;
+  }
+
+  .phase-tab-btn {
+    padding: 10px 12px;
+  }
+
+  /* Compact Sticky Item Column on Mobile/Foldable so 3-4 placement columns fit alongside */
+  .prob-matrix-table.is-12-col {
+    min-width: 900px;
+  }
+
+  .prob-matrix-table.is-12-col thead th:not(.sticky-col),
+  .prob-matrix-table.is-12-col td.prob-cell {
+    min-width: 60px;
+  }
+
+  .prob-matrix-table th.sticky-col,
+  .prob-matrix-table td.sticky-col {
+    width: 176px;
+    min-width: 176px;
+    max-width: 176px;
+    padding: 4px 8px;
+  }
+
+  .avail-table th.avail-item-col,
+  .avail-table td.avail-item-col {
+    min-width: 170px;
+    max-width: 176px;
+  }
+
+  .matrix-item-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 7px;
+  }
+
+  .matrix-item-en {
+    font-size: 0.75rem;
+  }
+
+  .matrix-item-meta {
+    font-size: 0.66rem;
+  }
+
+  .badge-new-unlock,
+  .badge-locked {
+    font-size: 0.54rem;
+    padding: 1px 4px;
+  }
+
+  .avail-kpi-strip {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .kpi-box {
+    padding: 10px 12px;
+  }
+
+  .kpi-value {
+    font-size: 1.24rem;
+  }
+
+  /* Section 03 Mobile Calculator Adjustments */
+  .calc-inputs-card {
+    padding: 14px;
+    gap: 14px;
+  }
+
+  .calc-hero-card {
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .hero-item-side {
+    gap: 14px;
+  }
+
+  .hero-item-img-box {
+    width: 74px;
+    height: 74px;
+    border-radius: 16px;
+  }
+
+  .hero-item-img-box::before {
+    font-size: 3.4rem;
+  }
+
+  .hero-item-img {
+    width: 56px;
+    height: 56px;
+  }
+
+  .hero-item-title {
+    font-size: 1.32rem;
+    white-space: normal;
+    line-height: 1.15;
+  }
+
+  .hero-item-notes {
+    -webkit-line-clamp: 3;
+    min-height: 0;
+  }
+
+  .hero-metrics-side {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .hero-stat {
+    min-width: 0;
+    width: 100%;
+    align-items: flex-start;
+    padding: 10px 12px;
+  }
+
+  .hero-stat-main {
+    font-size: 1.75rem;
+  }
+
+  .hero-stat-secondary {
+    font-size: 1.28rem;
+  }
+
+  .calc-subcard {
+    padding: 14px 12px;
+  }
+
+  .subcard-header {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .bar-row-pos {
+    grid-template-columns: minmax(96px, 34%) 1fr 54px;
+    gap: 8px;
+    padding: 5px 6px;
+  }
+
+  .bar-row-item {
+    grid-template-columns: minmax(125px, 44%) 1fr 52px;
+    gap: 8px;
+    padding: 5px 6px;
+  }
+
+  /* FAQ Modal Mobile Adjustments */
+  .faq-modal-backdrop {
+    padding: 10px;
+  }
+
+  .faq-modal-card {
+    max-height: 92vh;
+    border-radius: 16px;
+  }
+
+  .faq-modal-header {
+    flex-direction: column;
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .faq-modal-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .faq-accordion-list {
+    padding: 12px 14px;
+  }
+
+  .faq-question-btn {
+    padding: 12px;
+    gap: 9px;
+  }
+
+  .faq-q-text {
+    font-size: 0.94rem;
+  }
+
+  .faq-answer-content {
+    padding: 10px 12px 14px 12px;
+    font-size: 0.81rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .container {
+    padding: 0 8px;
+  }
+
+  .panel-card {
+    padding: 14px 10px 14px;
+  }
+
+  .section-nav {
+    display: flex;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 2px;
+  }
+
+  .section-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-pill {
+    flex: 0 0 auto;
+    padding: 7px 12px;
+  }
+
+  .phase-tabs {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .phase-tab-btn {
+    padding: 9px 10px;
+  }
+
+  .phase-tab-btn:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .phase-tab-time {
+    font-size: 1rem;
+  }
+
+  .prob-matrix-table th.sticky-col,
+  .prob-matrix-table td.sticky-col {
+    width: 146px;
+    min-width: 146px;
+    max-width: 146px;
+    padding: 4px 6px;
+  }
+
+  .avail-table th.avail-item-col,
+  .avail-table td.avail-item-col {
+    min-width: 146px;
+    max-width: 146px;
+    padding: 6px;
+  }
+
+  .badge-new-unlock,
+  .badge-locked {
+    display: none;
+  }
+
+  .form-row-2 {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .phase-quick-chips {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .hero-metrics-side {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .hero-stat-main {
+    font-size: 1.5rem;
+  }
+
+  .hero-stat-secondary {
+    font-size: 1.15rem;
+  }
+
+  .hero-stat-sub {
+    font-size: 0.65rem;
+  }
+
+  .bar-lock-note {
+    display: none;
+  }
+
+  .footer-right {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .footer-btn {
+    justify-content: center;
+  }
 }

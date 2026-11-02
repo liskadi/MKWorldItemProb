@@ -18,8 +18,8 @@ export function useStickyThead<T extends HTMLTableSectionElement>() {
 
       const topHeader = document.querySelector('.top-header');
       const headerBottom = topHeader
-        ? topHeader.getBoundingClientRect().bottom
-        : 0;
+        ? Math.max(6, topHeader.getBoundingClientRect().bottom)
+        : 6;
 
       const tableRect = table.getBoundingClientRect();
       const theadHeight = thead.offsetHeight;
