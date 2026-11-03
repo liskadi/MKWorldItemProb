@@ -2,6 +2,7 @@
   "name": "mkworld-item-prob",
   "private": true,
   "version": "1.0.0",
+  "license": "MIT",
   "description": "Mario Kart World (v1.8.0) Interactive Item Probability Table, Availability Caps & Scenario Calculator",
   "type": "module",
   "scripts": {
